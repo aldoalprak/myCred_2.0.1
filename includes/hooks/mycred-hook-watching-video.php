@@ -92,8 +92,13 @@ if ( ! class_exists( 'myCRED_Hook_Video_Views' ) ) :
 			$leniency = floor( $leniency );
 			$watched  = $seconds + $leniency;
 
-			$status   = 'silence';
+      $status   = 'silence';
+      
+      $users_all_log     = $this->get_all_users_video_log( $user_id );
+      $limit_per_day = 3; // modify this to change the limit
 
+      if(count($users_all_log) === $limit_per_day) return; //prevent user to get point if reach the limit
+      
 			switch ( $logic ) {
 
 				// Award points when video starts
