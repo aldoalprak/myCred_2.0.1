@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: myCred
+ * Plugin Name: myCred-modify-spin
  * Plugin URI: https://mycred.me
  * Description: An adaptive points management system for WordPress powered websites.
  * Version: 2.0.1
