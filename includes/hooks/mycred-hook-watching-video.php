@@ -271,6 +271,20 @@ if ( ! class_exists( 'myCRED_Hook_Video_Views' ) ) :
 
 		}
 
+    /**
+		 * Get Users Video Log
+		 * Custom function
+		 */
+
+    public function get_all_users_video_log( $user_id ) {
+
+      global $wpdb, $mycred_log_table;
+      date_default_timezone_set('Asia/Jakarta');
+      $current_date = date('Y-m-d', time()); 
+			return $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$mycred_log_table} WHERE user_id = %d AND ctype = %s AND ref = %s AND DATE(FROM_UNIXTIME(time)) = %s;", $user_id, $this->mycred_type, 'watching_video', $current_date) );
+
+    }
+    
 		/**
 		 * Update Points
 		 * @since 1.2
